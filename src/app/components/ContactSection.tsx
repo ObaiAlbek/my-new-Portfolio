@@ -6,7 +6,7 @@ export function ContactSection() {
   const [copied, setCopied] = useState(false);
   
   // Ich habe deine echte E-Mail aus dem Lebenslauf genommen!
-  const email = "obay.albeek@gmail.com"; 
+  const email = "obaialbek.dev@gmail.com"; 
 
   const handleCopy = () => {
     navigator.clipboard.writeText(email);
