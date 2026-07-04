@@ -15,7 +15,7 @@ export function AboutSection() {
       icon: Target,
       title: 'Quality Driven',
       description: 'Committed to excellence in every line of code and architecture.',
-      glowColor: 'group-hover:shadow-[0_0_30px_rgba(139,92,246,0.3)]', // Violett
+      glowColor: 'group-hover:shadow-[0_0_30px_rgba(139,92,246,0.3)]', 
       iconColor: 'text-[#8B5CF6]',
       iconBg: 'bg-[#8B5CF6]/10 border-[#8B5CF6]/20'
     },
