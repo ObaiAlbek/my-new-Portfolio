@@ -1,11 +1,31 @@
-import { motion } from 'motion/react'; // oder framer-motion
-import { ExternalLink, Github, Terminal, Layout, Network, Cpu, Database, Server } from 'lucide-react';
+import { motion } from 'motion/react'; 
+import { ExternalLink, Github, Terminal, Layout, Network, Cpu, Database, Server, Map } from 'lucide-react';
 
 export function ProjectsSection() {
   const projects = [
     {
+      title: 'CARUSO Data Catalog',
+      type: 'Automotive Data Platform',
+      image: '/karte.jpg',
+      icon: Map,
+      description: 'A complete redesign and development of a data catalog for the automotive marketplace CARUSO. Built as an agile semester project by our team "Ventus Vision", featuring a gamified, interactive map view for intuitive data exploration and structured user quests.',
+      tech: ['Go', 'Figma', 'Git/GitHub', 'Vercel', 'Scrum'],
+      highlights: ['Interactive Map UI', 'Agile Workflow', 'UX Redesign'],
+      theme: {
+        gradient: 'from-[#A855F7] to-indigo-600',
+        textGlow: 'text-[#A855F7]',
+        bgGlow: 'bg-[#A855F7]/10',
+        border: 'border-[#A855F7]/30'
+      },
+      techIcons: [Database, Layout, Network],
+      githubUrl: '#', 
+      liveUrl: 'https://ventusvision.github.io/VentusVision-Homepage/',
+      liveButtonText: 'Live Demo'
+    },
+    {
       title: 'DevBase Web Platform',
       type: 'Fullstack Ecosytem',
+      image: '/devbase.jpg', // <--- HIER IST DAS NEUE BILD
       icon: Layout,
       description: 'A comprehensive web platform for developers featuring code sharing, collaboration tools, and project management capabilities. Engineered for performance and seamless user experience.',
       tech: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Docker'],
@@ -17,27 +37,9 @@ export function ProjectsSection() {
         border: 'border-[#00FFF7]/30'
       },
       techIcons: [Database, Terminal, Cpu],
-      // NEU: Hier kommen deine echten Links rein!
       githubUrl: 'https://github.com/ObaiAlbek/devbase', 
-      liveUrl: 'https://devbase-demo.com'
-    },
-    {
-      title: 'JavaFX Client-Server',
-      type: 'Desktop Network Architecture',
-      icon: Network,
-      description: 'A robust client-server chat application built with JavaFX. Implementing real-time messaging with a clean interface, focused on rock-solid backend communication and thread safety.',
-      tech: ['Java', 'JavaFX', 'Sockets', 'Multi-threading', 'Maven'],
-      highlights: ['Real-time Messaging', 'Clean Architecture', 'Scalable Design'],
-      theme: {
-        gradient: 'from-[#64FFDA] to-emerald-600',
-        textGlow: 'text-[#64FFDA]',
-        bgGlow: 'bg-[#64FFDA]/10',
-        border: 'border-[#64FFDA]/30'
-      },
-      techIcons: [Server, Network, Terminal],
-      // NEU: Hier kommen deine echten Links rein!
-      githubUrl: 'https://github.com/ObaiAlbek/javafx-chat',
-      liveUrl: '#' // Lass ein # drin, falls es keine Live-Demo gibt
+      liveUrl: 'https://my-learning-platform-rouge.vercel.app/',
+      liveButtonText: 'Live Demo'
     }
   ];
 
@@ -93,25 +95,30 @@ export function ProjectsSection() {
                       transition={{ type: "spring", stiffness: 400, damping: 10 }}
                       className={`absolute inset-8 rounded-2xl bg-[#0A192F]/80 backdrop-blur-md border ${project.theme.border} shadow-2xl overflow-hidden flex flex-col`}
                     >
-                      <div className="h-8 bg-[#112240] border-b border-slate-700 flex items-center px-4 gap-2">
-                        <div className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
-                        <div className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
-                        <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
-                      </div>
-                      
-                      <div className="flex-1 flex items-center justify-center relative">
-                        <project.icon className={`w-20 h-20 ${project.theme.textGlow} opacity-80`} />
-                        
-                        {project.techIcons.map((Icon, i) => (
-                          <motion.div
-                            key={i}
-                            animate={{ y: [0, -10, 0], x: [0, i % 2 === 0 ? 5 : -5, 0] }}
-                            transition={{ duration: 4 + i, repeat: Infinity, ease: "easeInOut", delay: i }}
-                            className={`absolute ${i === 0 ? 'top-6 left-12' : i === 1 ? 'bottom-8 right-12' : 'top-10 right-16'} p-3 rounded-xl bg-[#112240] border border-slate-700 shadow-xl`}
-                          >
-                            <Icon className="w-5 h-5 text-slate-400" />
-                          </motion.div>
-                        ))}
+                      {/* Content Area (Bild ODER Icons) - Füllt nun den gesamten Platz */}
+                      <div className="flex-1 relative bg-[#0A192F]/50">
+                        {project.image ? (
+                          <img 
+                            src={project.image} 
+                            alt={`${project.title} Preview`} 
+                            className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+                          />
+                        ) : (
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <project.icon className={`w-20 h-20 ${project.theme.textGlow} opacity-80`} />
+                            
+                            {project.techIcons.map((Icon, i) => (
+                              <motion.div
+                                key={i}
+                                animate={{ y: [0, -10, 0], x: [0, i % 2 === 0 ? 5 : -5, 0] }}
+                                transition={{ duration: 4 + i, repeat: Infinity, ease: "easeInOut", delay: i }}
+                                className={`absolute ${i === 0 ? 'top-6 left-12' : i === 1 ? 'bottom-8 right-12' : 'top-10 right-16'} p-3 rounded-xl bg-[#112240] border border-slate-700 shadow-xl`}
+                              >
+                                <Icon className="w-5 h-5 text-slate-400" />
+                              </motion.div>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     </motion.div>
 
@@ -162,22 +169,23 @@ export function ProjectsSection() {
                     ))}
                   </div>
 
-                  {/* NEU: Action Buttons als echte Links (<a> Tags) */}
+                  {/* Action Buttons */}
                   <div className="flex flex-wrap items-center gap-4">
-                    <a 
-                      href={project.githubUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className={`group relative inline-flex items-center px-6 py-3 bg-transparent border-2 ${project.theme.border} rounded-xl font-['Inter'] font-semibold text-white overflow-hidden transition-all hover:scale-105`}
-                    >
-                      <div className={`absolute inset-0 bg-gradient-to-r ${project.theme.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-300`} />
-                      <span className="relative z-10 flex items-center gap-2">
-                        <Github className="w-5 h-5" />
-                        View Source
-                      </span>
-                    </a>
+                    {project.githubUrl !== '#' && (
+                      <a 
+                        href={project.githubUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className={`group relative inline-flex items-center px-6 py-3 bg-transparent border-2 ${project.theme.border} rounded-xl font-['Inter'] font-semibold text-white overflow-hidden transition-all hover:scale-105`}
+                      >
+                        <div className={`absolute inset-0 bg-gradient-to-r ${project.theme.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-300`} />
+                        <span className="relative z-10 flex items-center gap-2">
+                          <Github className="w-5 h-5" />
+                          View Source
+                        </span>
+                      </a>
+                    )}
 
-                    {/* Den "Live Demo" Button zeigen wir nur, wenn auch ein Link da ist (nicht #) */}
                     {project.liveUrl !== '#' && (
                       <a 
                         href={project.liveUrl} 
@@ -186,7 +194,7 @@ export function ProjectsSection() {
                         className="group inline-flex items-center px-6 py-3 bg-[#112240] hover:bg-slate-700 text-white rounded-xl font-['Inter'] font-semibold gap-2 transition-all hover:scale-105 shadow-lg"
                       >
                         <ExternalLink className={`w-5 h-5 ${project.theme.textGlow}`} />
-                        Live Demo
+                        {project.liveButtonText}
                       </a>
                     )}
                   </div>

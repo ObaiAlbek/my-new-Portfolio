@@ -52,9 +52,7 @@ export function HeroSection() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#112240] border border-[#64FFDA]/30 mb-8 backdrop-blur-sm">
               <Sparkles className="w-4 h-4 text-[#64FFDA] animate-pulse" />
-              <span className="text-sm text-[#64FFDA] font-['JetBrains_Mono'] tracking-wide">
-                Available for Work
-              </span>
+              
             </div>
           </motion.div>
 

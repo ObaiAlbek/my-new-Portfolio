@@ -19,7 +19,7 @@ export function TechStackSection() {
     {
       category: 'Frontend Interfaces',
       icon: Layout,
-      skills: ['TypeScript', 'React', 'JavaScript', 'Tailwind', 'HTML/CSS'],
+      skills: ['TypeScript', 'React', 'JavaScript', 'Tailwind', 'HTML/CSS', 'next.js'],
       theme: {
         iconColor: 'text-violet-400', // Leuchtendes Violett fürs Icon
         gradient: 'from-violet-400 to-fuchsia-600',
