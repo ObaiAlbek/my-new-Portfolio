@@ -19,7 +19,7 @@ export function ProjectsSection() {
       },
       techIcons: [Database, Layout, Network],
       githubUrl: '#', 
-      liveUrl: 'https://ventusvision.github.io/VentusVision-Homepage/',
+      liveUrl: 'https://ventus-vision-homepage.vercel.app/',
       liveButtonText: 'Live Demo'
     },
     {
