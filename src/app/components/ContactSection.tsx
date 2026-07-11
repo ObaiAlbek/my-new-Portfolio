@@ -34,8 +34,8 @@ export function ContactSection() {
   ];
 
   return (
-    <section className="relative py-32 px-6 bg-[#0A192F] overflow-hidden">
-      
+    <section id="contact" className="relative py-32 px-6 bg-[#0A192F] overflow-hidden">
+
       {/* Background Decor */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[400px] bg-gradient-to-t from-[#00FFF7]/10 to-transparent blur-[120px] pointer-events-none" />
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none" />

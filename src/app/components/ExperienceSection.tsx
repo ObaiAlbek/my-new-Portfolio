@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Briefcase, GraduationCap, Calendar, ChevronRight, Zap } from 'lucide-react';
+import { Briefcase, GraduationCap, Users, Calendar, ChevronRight, Zap, Star } from 'lucide-react';
 
 export function ExperienceSection() {
   const experiences = [
@@ -20,9 +20,9 @@ export function ExperienceSection() {
       }
     },
     {
-      icon: GraduationCap,
+      icon: Users,
       title: 'Java Programming Tutor',
-      company: 'Hochschule Mannheim',
+      company: 'Technische Hochschule Mannheim',
       period: '2025 - 2026',
       type: 'Education',
       description: 'Teaching Java programming fundamentals and best practices to university students.',
@@ -34,11 +34,28 @@ export function ExperienceSection() {
         border: 'group-hover:border-violet-400/50',
         shadow: 'hover:shadow-[0_0_40px_rgba(167,139,250,0.15)]'
       }
+    },
+    {
+      icon: GraduationCap,
+      title: 'B.Sc. Informatik',
+      company: 'Technische Hochschule Mannheim',
+      period: 'Sep 2023 - Present',
+      type: 'Education',
+      description: 'Pursuing a Bachelor of Science in Computer Science, with a focus on software engineering, algorithms, and data management.',
+      highlights: ['Software Engineering', 'Algorithms & Data Structures', 'Database Systems'],
+      grade: '1,6',
+      theme: {
+        color: 'text-emerald-400',
+        gradient: 'from-emerald-400 to-teal-600',
+        bgGlow: 'bg-emerald-500/10',
+        border: 'group-hover:border-emerald-400/50',
+        shadow: 'hover:shadow-[0_0_40px_rgba(52,211,153,0.15)]'
+      }
     }
   ];
 
   return (
-    <section className="relative py-32 px-6 bg-[#0A192F] overflow-hidden">
+    <section id="experience" className="relative py-32 px-6 bg-[#0A192F] overflow-hidden">
       
       {/* Background Decor */}
       <div className="absolute right-0 top-1/4 w-[500px] h-[500px] bg-[#64FFDA] opacity-[0.02] blur-[120px] rounded-full pointer-events-none" />
@@ -120,14 +137,22 @@ export function ExperienceSection() {
                         </div>
 
                         {/* Role & Type */}
-                        <div className="flex items-center gap-3 mb-6">
-                          <span className={`text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r ${exp.theme.gradient}`}>
-                            {exp.company}
-                          </span>
-                          <span className="w-1.5 h-1.5 rounded-full bg-slate-600" />
-                          <span className="text-sm font-mono text-slate-400 uppercase tracking-wider">
-                            {exp.type}
-                          </span>
+                        <div className="mb-6">
+                          <div className={`flex items-center gap-3 ${exp.grade ? 'mb-3' : ''}`}>
+                            <span className={`text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r ${exp.theme.gradient}`}>
+                              {exp.company}
+                            </span>
+                            <span className="w-1.5 h-1.5 rounded-full bg-slate-600 shrink-0" />
+                            <span className="text-sm font-mono text-slate-400 uppercase tracking-wider">
+                              {exp.type}
+                            </span>
+                          </div>
+                          {exp.grade && (
+                            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-400/30 text-emerald-300 text-sm font-mono font-semibold">
+                              <Star className="w-3.5 h-3.5 fill-emerald-400 text-emerald-400" />
+                              Current Grade: {exp.grade}
+                            </span>
+                          )}
                         </div>
 
                         {/* Description */}

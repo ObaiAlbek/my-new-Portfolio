@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Sparkles, Terminal, Code2 } from "lucide-react";
+import { ArrowRight, Sparkles, Terminal, Code2, Download } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export function HeroSection() {
@@ -18,7 +18,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a192f]">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a192f]">
       {/* 1. Interaktiver Maus-Glow (folgt dem Mauszeiger) */}
       <div
         className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300"
@@ -95,6 +95,15 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-wrap gap-4"
           >
+            <a
+              href="/cv.pdf"
+              download
+              className="group relative inline-flex px-8 py-4 bg-[#64FFDA] text-[#0A192F] rounded-md overflow-hidden transition-all hover:bg-[#64FFDA]/90 font-['JetBrains_Mono'] font-semibold items-center justify-center gap-3 shadow-[0_0_20px_rgba(100,255,218,0.25)] hover:shadow-[0_0_35px_rgba(100,255,218,0.5)] hover:-translate-y-0.5"
+            >
+              <Download className="w-5 h-5 group-hover:translate-y-0.5 transition-transform duration-300" />
+              Download CV
+            </a>
+
             <a
               href="#projects"
               className="group relative inline-flex px-8 py-4 bg-transparent border-2 border-[#64FFDA] text-[#64FFDA] rounded-md overflow-hidden transition-all hover:bg-[#64FFDA]/10 font-['JetBrains_Mono'] font-medium items-center justify-center gap-3 hover:shadow-[0_0_20px_rgba(100,255,218,0.3)]"

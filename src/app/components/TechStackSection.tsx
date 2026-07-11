@@ -58,8 +58,8 @@ export function TechStackSection() {
   ];
 
   return (
-    <section className="relative py-32 px-6 bg-[#0A192F] overflow-hidden">
-      
+    <section id="stack" className="relative py-32 px-6 bg-[#0A192F] overflow-hidden">
+
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[400px] bg-[#64FFDA] opacity-[0.03] blur-[150px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
